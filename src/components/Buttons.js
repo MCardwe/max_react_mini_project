@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 
 const Buttons = ({CountriesClick, QuotesClick, WeatherClick}) => {
@@ -15,11 +16,12 @@ const Buttons = ({CountriesClick, QuotesClick, WeatherClick}) => {
         }
     }
 
+
     return (
-        <div>
-            <button value='weather' onClick={handleClick}>Weather Button</button>
-            <button value='countries' onClick={handleClick}>Countries Button</button>
-            <button value='quotes' onClick={handleClick}>GoT Quotes Button</button>
+        <div className='buttons'>
+            <button value='weather' onClick={handleClick}>Weather App</button>
+            <button value='countries' onClick={handleClick}>Countries App</button>
+            <button value='quotes' onClick={handleClick}>GoT Quotes App</button>
         </div>
     );
 }

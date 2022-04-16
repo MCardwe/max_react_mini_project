@@ -27,8 +27,10 @@ function App() {
       <Title>Max Cardwell's React Portfolio</Title>
       <Intro>Hey! I am a Junior Software Developer who absolutely loves using react! I thought id put together a few fun little applications ive made so far for you to play with and enjoy</Intro>
       <MainPage />
+      <h3>Thanks for visiting!</h3>
       <div className='footer'>
       <Footer />
+      
       </div>
     </div>
   );
