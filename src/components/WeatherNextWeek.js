@@ -1,13 +1,18 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import LocationContext from '../context/LocationContext';
 
 
-const WeatherNextWeek = () => {
+const WeatherNextWeek = ({comment, day, icon, max_temp, min_temp}) => {
 
-
+    
     return (
-        <>
-            <h2>Weather next week</h2>
-        </>
+        <div className='single-day-weather'>
+            <p>{day}</p>
+            <p><img src={icon}/></p>
+            <p>{comment}</p>
+            <p>Max: {max_temp}°C</p>
+            <p>Min: {min_temp}°C</p>
+        </div>
     );
 }
 

@@ -8,25 +8,28 @@ import LocationContext from '../context/LocationContext';
 const MainPage = () => {
 
     const [location, setLocation] = useState('edinburgh');
-    const [weather, setWeather] = useState({});
+    const [weather, setWeather] = useState(null);
     const [loaded, setLoaded] = useState(false)
 
     const getWeather = () => {
         fetch("https://weatherdbi.herokuapp.com/data/weather/" + location)
         .then(response => response.json())
-        .then(data => setWeather(data))
-        .then(setLoaded(true));
+        .then(data => setWeather(data));
     }
     useEffect(() => {
         getWeather();
     }, [location])
 
+    useEffect(() => {
+        changeLoaded()
+    },[weather]);
+    
     const handleWeatherSelect = (location) => {
         setLocation(location);
     }
 
     const changeLoaded = () => {
-        setLoaded(false);
+        setLoaded(true);
     }
 
     const [weatherClicked, setWeatherClicked] = useState(false);
@@ -56,7 +59,7 @@ const MainPage = () => {
 
     return (
         <div className='main-page'>
-            <Buttons CountriesClick={handleCountriesClick} QuotesClick={handleQuotesClick} WeatherClick={handleWeatherClick}/>
+            { loaded ? <Buttons CountriesClick={handleCountriesClick} QuotesClick={handleQuotesClick} WeatherClick={handleWeatherClick}/> : null}
             <LocationContext.Provider value={{weather, loaded, changeLoaded}}>
             { weatherClicked ? <WeatherApp handleSelect={handleWeatherSelect}/> : null}
             </LocationContext.Provider>

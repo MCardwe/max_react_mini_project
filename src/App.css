@@ -31,7 +31,29 @@
 }
 
 .weather-today {
+  margin-top: 2em;
   display: flex;
+  justify-content: space-evenly;
+  background-color: #679289;
+  border-radius: 2em;
+  color: #f4c095;
+  box-shadow: 0 0 10px #C0C0C0;
+  box-shadow: 0 0 10px #C0C0C0;
+  font-size: 1.5em;
+}
+
+.weather-show {
+}
+
+.single-day-weather {
+  padding: 2em;
+  border-radius: 2em;
+  
+}
+
+.next-week-weather {
+  display: flex;
+  justify-content: center;
 }
 
 .endblank {
