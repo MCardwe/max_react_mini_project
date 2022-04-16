@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import LocationContext from '../context/LocationContext';
 
 
 const WeatherSearch = ({handleSelect}) => {
 
     const [locationInput, setLocationInput] = useState('')
 
+    const {changeLoaded} = useContext(LocationContext)
+
     const handleSubmit = (event) => {
-        event.preventDefault()
-        handleSelect(locationInput)
-        setLocationInput('')
+        event.preventDefault();
+        changeLoaded();
+        handleSelect(locationInput);
+        setLocationInput('');
     }
     
     const handleInput = (event) => {

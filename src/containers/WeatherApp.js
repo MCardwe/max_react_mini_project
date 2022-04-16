@@ -11,8 +11,8 @@ const WeatherApp = ({handleSelect}) => {
     return (
         <>
             <h2>Here is my weather app, feel free to have a play around!</h2>
-            <WeatherSearch handleWeatherSelect={handleSelect}/>
-            { weather ? <WeatherShow /> : null}
+            <WeatherSearch handleSelect={handleSelect}/>
+            { weather ? <WeatherShow /> : <h2>Loading...</h2>}
         </>
     );
 }

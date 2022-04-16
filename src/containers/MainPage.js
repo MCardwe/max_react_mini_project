@@ -9,11 +9,13 @@ const MainPage = () => {
 
     const [location, setLocation] = useState('edinburgh');
     const [weather, setWeather] = useState({});
+    const [loaded, setLoaded] = useState(false)
 
     const getWeather = () => {
         fetch("https://weatherdbi.herokuapp.com/data/weather/" + location)
         .then(response => response.json())
-        .then(data => setWeather(data));
+        .then(data => setWeather(data))
+        .then(setLoaded(true));
     }
     useEffect(() => {
         getWeather();
@@ -21,6 +23,10 @@ const MainPage = () => {
 
     const handleWeatherSelect = (location) => {
         setLocation(location);
+    }
+
+    const changeLoaded = () => {
+        setLoaded(false);
     }
 
     const [weatherClicked, setWeatherClicked] = useState(false);
@@ -51,7 +57,7 @@ const MainPage = () => {
     return (
         <div className='main-page'>
             <Buttons CountriesClick={handleCountriesClick} QuotesClick={handleQuotesClick} WeatherClick={handleWeatherClick}/>
-            <LocationContext.Provider value={{weather}}>
+            <LocationContext.Provider value={{weather, loaded, changeLoaded}}>
             { weatherClicked ? <WeatherApp handleSelect={handleWeatherSelect}/> : null}
             </LocationContext.Provider>
             { countriesClicked ? <CountriesApp /> : null}
