@@ -24,8 +24,8 @@ function App() {
 
   return (
     <div className='App'>
-      <Title>Max Cardwell's React Portfolio</Title>
-      <Intro>Hey! I am a Junior Software Developer who absolutely loves using react! I thought id put together a few fun little applications ive made so far for you to play with and enjoy</Intro>
+      <Title>Max Cardwell's React Apps!</Title>
+      <Intro>Hey! I am a Junior Software Developer who absolutely loves using react! I thought i'd put together a few little applications i've made so far for you to play with and enjoy!</Intro>
       <MainPage />
       <h3>Thanks for visiting!</h3>
       <div className='footer'>
